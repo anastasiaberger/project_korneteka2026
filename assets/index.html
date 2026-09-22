@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корнетека</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<!-- =====================================================
+     ЭКРАН 1 — ЛИСТЬЯ
+====================================================== -->
+
+<section class="screen screen-1">
+
+    <!-- HEADER -->
+    <header class="main-header">
+
+        <div class="logo">
+            КОРНЕТЕКА
+        </div>
+
+        <div class="header-label">
+            АТЛАС ЛАБОРАТОРИИ
+        </div>
+
+    </header>
+
+
+    <!-- ОСНОВНАЯ ОБЛАСТЬ -->
+    <div class="screen-1-content">
+
+        <!-- ЛЕВАЯ ЧАСТЬ С ЛИСТЬЯМИ -->
+        <div class="leaves-area">
+
+            <!--
+                ЗАМЕНИ:
+                assets/leaves/leaf-1.png
+                на путь к своей картинке
+
+                Аналогично для всех остальных.
+            -->
+
+            <button class="leaf leaf-1"
+                    data-front="assets/leaves/leaf-1.png"
+                    data-back="assets/leaves/leaf-1-back.png">
+                <img src="assets/leaves/leaf-1.png" alt="">
+            </button>
+
+            <button class="leaf leaf-2"
+                    data-front="assets/leaves/leaf-2.png"
+                    data-back="assets/leaves/leaf-2-back.png">
+                <img src="assets/leaves/leaf-2.png" alt="">
+            </button>
+
+            <button class="leaf leaf-3"
+                    data-front="assets/leaves/leaf-3.png"
+                    data-back="assets/leaves/leaf-3-back.png">
+                <img src="assets/leaves/leaf-3.png" alt="">
+            </button>
+
+            <button class="leaf leaf-4"
+                    data-front="assets/leaves/leaf-4.png"
+                    data-back="assets/leaves/leaf-4-back.png">
+                <img src="assets/leaves/leaf-4.png" alt="">
+            </button>
+
+            <button class="leaf leaf-5"
+                    data-front="assets/leaves/leaf-5.png"
+                    data-back="assets/leaves/leaf-5-back.png">
+                <img src="assets/leaves/leaf-5.png" alt="">
+            </button>
+
+            <button class="leaf leaf-6"
+                    data-front="assets/leaves/leaf-6.png"
+                    data-back="assets/leaves/leaf-6-back.png">
+                <img src="assets/leaves/leaf-6.png" alt="">
+            </button>
+
+        </div>
+
+
+        <!-- ПРАВАЯ ЛЕГЕНДА -->
+        <div class="legend">
+
+            <div class="legend-item">
+                <img src="assets/other-things/one.svg" alt="">
+                <span>СИГНАЛ</span>
+            </div>
+
+            <div class="legend-item">
+                <img src="assets/other-things/two.svg" alt="">
+                <span>ДИАЛОГ</span>
+            </div>
+
+            <div class="legend-item">
+                <img src="assets/other-things/three.svg" alt="">
+                <span>СВЯЗЬ</span>
+            </div>
+
+            <div class="legend-item">
+                <img src="assets/other-things/four.svg" alt="">
+                <span>РИТМ</span>
+            </div>
+
+            <div class="legend-item">
+                <img src="assets/other-things/five.svg" alt="">
+                <span>ЭХО</span>
+            </div>
+
+            <div class="legend-item">
+                <img src="assets/other-things/six.svg" alt="">
+                <span>ПЕРЕВОД</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ШКАЛА ВНИЗУ -->
+    <div class="scale-bar"></div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ЭКРАН 2 — ВЕТКА 
+====================================================== -->
+
+<section class="screen screen-2">
+
+    <div class="branch-area">
+
+        <!-- КАРТИНКА ВЕТКИ -->
+        <img
+            class="branch-image"
+            src="assets/branch/branch.png"
+            alt=""
+        >
+
+        <!--
+            SVG используется для линий между точками.
+            JS будет рисовать линии автоматически.
+        -->
+
+        <svg class="connection-svg">
+            <!-- линии добавляются через JavaScript -->
+        </svg>
+
+
+        <!-- ТОЧКА 1 -->
+        <button class="connection-point point-1" data-point="1">
+            <span></span>
+        </button>
+
+        <!-- ТОЧКА 2 -->
+        <button class="connection-point point-2" data-point="2">
+            <span></span>
+        </button>
+
+        <!-- ТОЧКА 3 -->
+        <button class="connection-point point-3" data-point="3">
+            <span></span>
+        </button>
+
+        <!-- ТОЧКА 4 -->
+        <button class="connection-point point-4" data-point="4">
+            <span></span>
+        </button>
+
+        <!-- ТОЧКА 5 -->
+        <button class="connection-point point-5" data-point="5">
+            <span></span>
+        </button>
+
+        <!-- ТОЧКА 6 -->
+        <button class="connection-point point-6" data-point="6">
+            <span></span>
+        </button>
+
+    </div>
+
+
+    <!-- СЛОВА -->
+    <div class="branch-words">
+
+        <span class="branch-word word-1">
+            ДАННЫЕ
+        </span>
+
+        <span class="branch-word word-2">
+            ПРИХОДЯТ
+        </span>
+
+        <span class="branch-word word-3">
+            ПРЯМО
+        </span>
+
+        <span class="branch-word word-4">
+            ИЗ
+        </span>
+
+        <span class="branch-word word-5">
+            ЛЕСНЫХ
+        </span>
+
+        <span class="branch-word word-6">
+            ИМПУЛЬСОВ
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ЭКРАН 3 — ГОЛОСА
+====================================================== -->
+
+<section class="screen screen-3">
+
+    <!-- ЛЕВАЯ ФОТОГРАФИЯ КОРЫ -->
+    <div class="bark-frame">
+
+        <img
+            class="bark-image"
+            src="assets/tree/tree.png"
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- ПРАВАЯ ВЕРХНЯЯ ОБЛАСТЬ -->
+    <div class="text-frame">
+
+        <div class="top-text">
+            <div>СТРУКТУРИРУЕМ</div>
+            <div>СИГНАЛЫ</div>
+            <div>В ПОНЯТНЫЕ</div>
+            <div>ПАТТЕРНЫ</div>
+        </div>
+
+    </div>
+
+
+    <!-- ПРАВАЯ НИЖНЯЯ ОБЛАСТЬ -->
+    <div class="rings-frame">
+
+        <img
+            class="rings-image"
+            src="assets/tree/cells.png"
+            alt=""
+        >
+
+
+        <!--
+            БУКВЫ.
+
+            Здесь ты потом поменяешь пути к своим SVG.
+            Их положение задаётся в CSS.
+        -->
+
+        <button class="letter letter-1">
+            <img src="assets/letters/g.svg" alt="">
+        </button>
+
+        <button class="letter letter-2">
+            <img src="assets/letters/o1.svg" alt="">
+        </button>
+
+        <button class="letter letter-3">
+            <img src="assets/letters/l.svg" alt="">
+        </button>
+
+        <button class="letter letter-4">
+            <img src="assets/letters/o2.svg" alt="">
+        </button>
+
+        <button class="letter letter-5">
+            <img src="assets/letters/s.svg" alt="">
+        </button>
+
+        <button class="letter letter-6">
+            <img src="assets/letters/a.svg" alt="">
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ЭКРАН 4 — ПЕНЬ 
+====================================================== -->
+
+<section class="screen screen-4">
+
+    <div class="stump-area">
+
+        <!-- ПЕНЬ -->
+        <img
+            class="stump-image"
+            src="assets/stump/stump.png"
+            alt=""
+        >
+
+
+        <!-- СЛОЙ С ТРАВОЙ -->
+        <div class="grass-layer">
+
+            <img class="grass grass-1"
+                 src="assets/grass/grass1.svg"
+                 alt="">
+
+            <img class="grass grass-2"
+                 src="assets/grass/grass2.svg"
+                 alt="">
+
+            <img class="grass grass-3"
+                 src="assets/grass/grass3.svg"
+                 alt="">
+
+            <img class="grass grass-4"
+                 src="assets/grass/grass4.svg"
+                 alt="">
+
+            <img class="grass grass-5"
+                 src="assets/grass/grass5.svg"
+                 alt="">
+
+            <img class="grass grass-6"
+                src="assets/grass/grass6.svg"
+                 alt="">
+
+            <img class="grass grass-7"
+                 src="assets/grass/grass7.svg"
+                 alt="">
+
+            <img class="grass grass-8"
+                 src="assets/grass/grass8.svg"
+                 alt="">
+
+            <img class="grass grass-9"
+                 src="assets/grass/grass9.svg"
+                 alt="">
+
+            <img class="grass grass-10"
+                 src="assets/grass/grass10.svg"
+                 alt="">
+
+            <img class="grass grass-11"
+                 src="assets/grass/grass11.svg"
+                 alt="">
+
+            <img class="grass grass-12"
+                 src="assets/grass/grass12.svg"
+                 alt="">
+
+            <img class="grass grass-13"
+                 src="assets/grass/grass13.svg"
+                 alt="">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ЭКРАН 5 — КОРНИ
+====================================================== -->
+
+<section class="screen screen-5">
+
+    <!-- КОРНИ -->
+
+    <div class="roots-area">
+
+        <button class="root root-1" data-root="1">
+            <img
+                src="assets/roots/root1.svg"
+                alt=""
+            >
+        </button>
+
+        <button class="root root-2" data-root="2">
+            <img
+                src="assets/roots/root2.svg"
+                alt=""
+            >
+        </button>
+
+        <button class="root root-3" data-root="3">
+            <img
+                src="assets/roots/root3.svg"
+                alt=""
+            >
+        </button>
+
+    </div>
+
+
+    <!-- СЛОВА, КОТОРЫЕ ПОЯВЛЯЮТСЯ ПРИ КЛИКЕ -->
+
+    <div class="root-words">
+
+        <span class="root-word root-word-1">
+            СЛУШАЕМ
+        </span>
+
+        <span class="root-word root-word-2">
+            ПЕРЕВОДИМ
+        </span>
+
+        <span class="root-word root-word-3">
+            АРХИВИРУЕМ
+        </span>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer class="main-footer">
+
+        <div class="footer-name">
+            БЕРГЕР АНАСТАСИЯ
+        </div>
+
+        <div class="footer-group">
+            БП25ДЗ11
+        </div>
+
+    </footer>
+
+</section>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+<main class="site">

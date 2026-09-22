@@ -1,0 +1,715 @@
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: #f5f1eb; color: #000000;
+font-family: "PT Mono", monospace;
+
+overflow-x: hidden;
+}
+/* Один экран = 1440 × 800.
+Но экран не имеет жёсткой ширины 1440px.
+Если браузер меньше — он уменьшается пропорционально.
+*/
+.screen { position: relative;
+width: min(100%, 1440px);
+
+aspect-ratio: 1440 / 800;
+
+margin: 0 auto;
+
+overflow: hidden;
+}
+/* ========================================================= ОБЩИЕ ЦВЕТА ========================================================= */
+:root { --paper: #f5f1eb; --black: #000000; --green: #acb585;
+--line: 1px solid #000000;
+}
+/* ========================================================= ЭКРАН 1 ========================================================= */
+/* ---------- HEADER ---------- */
+.main-header {
+position: absolute;
+
+left: 2.083333%;
+right: 2.083333%;
+top: 3.75%;
+
+width: 95.833333%;
+height: 16.875%;
+
+border: 1px solid var(--black);
+
+display: flex;
+
+align-items: center;
+justify-content: space-between;
+
+padding-left: 2.173913%;
+padding-right: 2.173913%;
+}
+.logo {
+font-size: clamp(14px, 1.25vw, 18px);
+
+line-height: 1;
+
+white-space: nowrap;
+}
+.header-title {
+font-family: "PT Mono", monospace;
+
+font-size: clamp(18px, 2.222222vw, 32px);
+
+line-height: 1;
+
+white-space: nowrap;
+}
+/* ---------- ОСНОВНОЙ КОНТЕНТ ---------- */
+.screen-1-content {
+position: absolute;
+
+left: 2.083333%;
+top: 24.375%;
+
+width: 95.833333%;
+height: 71.875%;
+}
+/* ---------- ЛИСТЬЯ ---------- */
+.leaves-area {
+position: absolute;
+
+left: 0;
+top: 0;
+
+width: 70%;
+height: 100%;
+}
+/* ЗДЕСЬ МОЖНО НАСТРОИТЬ КАЖДЫЙ ЛИСТ
+Сейчас стоит примерная сетка.
+
+Если твоя Figma-композиция другая,
+меняй left / top / width / height.
+*/
+.leaf {
+position: absolute;
+
+display: block;
+
+padding: 0;
+
+margin: 0;
+
+border: 1px solid var(--black);
+
+background: transparent;
+
+cursor: pointer;
+
+overflow: hidden;
+
+transition: transform 0.2s ease;
+}
+.leaf img {
+display: block;
+
+width: 100%;
+height: 100%;
+
+object-fit: contain;
+}
+/* ========================================================= ПОЗИЦИИ 6 ЛИСТЬЕВ ← ТУТ МОЖЕШЬ ПОМЕНЯТЬ ПОД FIGMA ========================================================= */
+.leaf-1 { left: 0%; top: 0%; width: 32%; height: 40%; }
+.leaf-2 { left: 32%; top: 0%; width: 18%; height: 40%; }
+.leaf-3 { left: 50%; top: 0%; width: 18%; height: 40%; }
+.leaf-4 { left: 0%; top: 40%; width: 25%; height: 30%; }
+.leaf-5 { left: 25%; top: 40%; width: 25%; height: 30%; }
+.leaf-6 { left: 50%; top: 40%; width: 18%; height: 30%; }
+.leaf:hover { transform: scale(1.01); }
+/* ---------- LEGEND ---------- */
+.legend {
+position: absolute;
+
+left: 70%;
+top: 0;
+
+width: 30%;
+height: 80%;
+
+padding-left: 2.173913%;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: flex-start;
+
+justify-content: flex-start;
+
+gap: 1.875%;
+}
+.legend-item {
+display: flex;
+
+align-items: center;
+
+gap: 1.5%;
+
+width: 100%;
+}
+.legend-item img {
+width: clamp(24px, 2.847222vw, 41px);
+height: clamp(24px, 2.847222vw, 41px);
+
+flex-shrink: 0;
+}
+.legend-item span {
+font-size: clamp(10px, 1.111111vw, 16px);
+
+white-space: nowrap;
+}
+/* ---------- SCALE BAR ---------- */
+.scale-bar {
+position: absolute;
+
+left: 70%;
+bottom: 5.217391%;
+
+margin-left: 2.173913%;
+
+width: clamp(220px, 27.777778vw, 400px);
+height: clamp(8px, 1.041667vw, 15px);
+
+border: 1px solid var(--black);
+
+display: flex;
+}
+.scale-bar span {
+flex: 1;
+
+height: 100%;
+
+border-right: 1px solid var(--black);
+}
+.scale-bar span:last-child { border-right: none; }
+.scale-bar span:nth-child(even) { background: var(--black); }
+/* ========================================================= ЭКРАН 2 ========================================================= */
+.screen-2 { background: var(--paper); }
+.branch-section {
+position: absolute;
+
+left: 2.083333%;
+top: 3.75%;
+
+width: 95.833333%;
+height: 92.5%;
+}
+/* ---------- ВЕТКА ---------- */
+.branch-interactive {
+position: absolute;
+
+left: 0;
+top: 0;
+
+width: 100%;
+height: 89.125%;
+
+overflow: visible;
+}
+.branch-image {
+position: absolute;
+
+inset: 0;
+
+width: 100%;
+height: 100%;
+
+object-fit: fill;
+
+display: block;
+}
+/* ---------- SVG ЛИНИИ ---------- */
+.connection-svg {
+position: absolute;
+
+inset: 0;
+
+width: 100%;
+height: 100%;
+
+pointer-events: none;
+
+z-index: 2;
+}
+.connection-line {
+fill: none;
+
+stroke: var(--black);
+
+stroke-width: 3;
+
+vector-effect: non-scaling-stroke;
+
+stroke-dasharray: 8 8;
+
+transition:
+    stroke-dasharray 0.4s ease,
+    stroke-width 0.3s ease;
+}
+.connection-line.connected {
+stroke-dasharray: none;
+
+stroke-width: 4;
+}
+/* ---------- ТОЧКИ ---------- */
+.connection-point {
+position: absolute;
+
+width: 2.173913%;
+aspect-ratio: 1 / 1;
+
+border-radius: 50%;
+
+border: 1px solid var(--black);
+
+background: var(--green);
+
+cursor: grab;
+
+z-index: 5;
+
+transform: translate(0, 0);
+
+touch-action: none;
+
+transition:
+    transform 0.15s ease,
+    background 0.2s ease;
+}
+.connection-point:hover {
+transform: scale(1.15);
+}
+.connection-point.active {
+cursor: grabbing;
+
+background: #000000;
+}
+.connection-point.completed {
+background: var(--paper);
+}
+/* ТОЧНЫЕ КООРДИНАТЫ ТОЧЕК относительно фотографии 1380 × 713.
+Я перевёл твои px в проценты.
+
+← ЕСЛИ ПОТОМ НУЖНО БУДЕТ ПОДВИГАТЬ ТОЧКИ,
+  МЕНЯЙ ЗДЕСЬ.
+*/
+.point-1 { left: 6.014493%; top: 62.131838%; }
+.point-2 { left: 36.884058%; top: 22.580645%; }
+.point-3 { left: 37.971014%; top: 66.339410%; }
+.point-4 { left: 56.304348%; top: 52.454418%; }
+.point-5 { left: 74.855072%; top: 64.235624%; }
+.point-6 { left: 90.507246%; top: 26.086957%; }
+/* ---------- СЛОВА ---------- */
+.branch-words {
+position: absolute;
+
+left: 0;
+bottom: 0;
+
+width: 100%;
+height: 3.375%;
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding-left: 2.173913%;
+padding-right: 2.173913%;
+}
+.branch-word {
+font-size: clamp(9px, 0.972222vw, 14px);
+
+opacity: 0;
+
+transform: translateY(8px);
+
+transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+white-space: nowrap;
+}
+.branch-word.visible {
+opacity: 1;
+
+transform: translateY(0);
+}
+/* ========================================================= ЭКРАН 3 ========================================================= */
+.screen-3 { background: var(--paper); }
+.rings-section {
+position: absolute;
+
+left: 2.083333%;
+top: 3.75%;
+
+width: 95.833333%;
+height: 92.5%;
+
+display: flex;
+}
+/* ---------- КОРА ---------- */
+.bark-frame {
+width: 33.333333%;
+height: 100%;
+
+border: 1px solid var(--black);
+
+flex-shrink: 0;
+
+overflow: hidden;
+}
+.bark-frame img {
+width: 100%;
+height: 100%;
+
+object-fit: cover;
+
+display: block;
+}
+/* ---------- ПРАВАЯ ЧАСТЬ ---------- */
+.rings-right {
+width: 66.666667%;
+height: 100%;
+}
+/* ---------- ТЕКСТОВАЯ ПЛАШКА ---------- */
+.pattern-frame {
+position: relative;
+
+width: 100%;
+height: 35.135135%;
+
+border: 1px solid var(--black);
+
+overflow: hidden;
+}
+.pattern-text {
+position: absolute;
+
+top: 11.538462%;
+right: 3.26087%;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: flex-end;
+
+gap: 11.153846%;
+
+font-size: clamp(10px, 1.111111vw, 16px);
+
+line-height: 1;
+}
+.pattern-text span { white-space: nowrap; }
+/* ---------- КОЛЬЦА ---------- */
+.rings-frame {
+position: relative;
+
+width: 100%;
+height: 64.864865%;
+
+border: 1px solid var(--black);
+
+overflow: hidden;
+}
+.rings-image {
+position: absolute;
+
+inset: 0;
+
+width: 100%;
+height: 100%;
+
+object-fit: fill;
+
+display: block;
+}
+/* ========================================================= БУКВЫ
+← ТУТ НАСТРАИВАЕШЬ КООРДИНАТЫ
+left / top задаются относительно блока с кольцами.
+Сейчас стоят ПРИМЕРНЫЕ значения. ========================================================= */
+.letter {
+position: absolute;
+
+width: 7%;
+aspect-ratio: 1 / 1;
+
+padding: 0;
+
+border: none;
+
+background: transparent;
+
+cursor: pointer;
+
+z-index: 3;
+
+transition:
+    left 0.7s cubic-bezier(.2,.8,.2,1),
+    top 0.7s cubic-bezier(.2,.8,.2,1),
+    transform 0.2s ease;
+}
+.letter img {
+width: 100%;
+height: 100%;
+
+display: block;
+}
+.letter:hover {
+transform: scale(1.08);
+}
+/* НАЧАЛЬНЫЕ ПОЗИЦИИ ← ПЕРЕПИШИ ПОД СВОЙ FIGMA */
+.letter-1 { left: 20%; top: 25%; }
+.letter-2 { left: 32%; top: 55%; }
+.letter-3 { left: 45%; top: 20%; }
+.letter-4 { left: 55%; top: 60%; }
+.letter-5 { left: 67%; top: 30%; }
+.letter-6 { left: 80%; top: 55%; }
+/* ЦЕЛЕВЫЕ ПОЗИЦИИ
+Сюда JS переместит буквы после клика.
+
+← ВПИШИ СЮДА КООРДИНАТЫ ИЗ FIGMA
+*/
+.letter-1.correct-position { left: 20%; top: 50%; }
+.letter-2.correct-position { left: 32%; top: 50%; }
+.letter-3.correct-position { left: 44%; top: 50%; }
+.letter-4.correct-position { left: 56%; top: 50%; }
+.letter-5.correct-position { left: 68%; top: 50%; }
+.letter-6.correct-position { left: 80%; top: 50%; }
+/* ========================================================= ЭКРАН 4 ========================================================= */
+.screen-4 { background: var(--paper); }
+.grass-section {
+position: absolute;
+
+left: 2.083333%;
+top: 3.75%;
+
+width: 95.833333%;
+height: 92.5%;
+
+overflow: hidden;
+}
+/* ---------- ПНЬ ---------- */
+.stump-image {
+position: absolute;
+
+inset: 0;
+
+width: 100%;
+height: 100%;
+
+object-fit: fill;
+
+display: block;
+}
+/* ---------- ТРАВА ---------- */
+.grass-layer {
+position: absolute;
+
+inset: 0;
+
+overflow: hidden;
+
+pointer-events: auto;
+}
+.grass-blade {
+position: absolute;
+
+display: block;
+
+transform-origin: bottom center;
+
+transition:
+    transform 0.45s cubic-bezier(.2,.8,.2,1);
+
+pointer-events: none;
+}
+/* ========================================================= ПОЗИЦИИ ТРАВИНОК =========================================================
+ТЫ МОЖЕШЬ ПОЛНОСТЬЮ ПЕРЕПИСАТЬ
+left / top / width / height.
+
+Координаты относительные.
+
+Например:
+
+left: 20%;
+bottom: -5%;
+width: 10%;
+*/
+.grass-1 { left: 0%; bottom: -5%; width: 10%; }
+.grass-2 { left: 7%; bottom: -3%; width: 9%; }
+.grass-3 { left: 15%; bottom: -5%; width: 8%; }
+.grass-4 { left: 24%; bottom: -2%; width: 11%; }
+.grass-5 { left: 33%; bottom: -4%; width: 8%; }
+.grass-6 { left: 42%; bottom: -5%; width: 10%; }
+.grass-7 { left: 50%; bottom: -3%; width: 9%; }
+.grass-8 { left: 58%; bottom: -5%; width: 11%; }
+.grass-9 { left: 67%; bottom: -4%; width: 8%; }
+.grass-10 { left: 74%; bottom: -2%; width: 10%; }
+.grass-11 { left: 82%; bottom: -5%; width: 9%; }
+.grass-12 { left: 89%; bottom: -3%; width: 8%; }
+.grass-13 { left: 95%; bottom: -4%; width: 9%; }
+/* ========================================================= ЭКРАН 5 ========================================================= */
+.screen-5 {
+background: #000000;
+
+color: #f5f1eb;
+}
+.roots-section {
+position: absolute;
+
+inset: 0;
+
+overflow: hidden;
+}
+/* ---------- КОРНИ ---------- */
+.roots-layer {
+position: absolute;
+
+left: 0;
+top: 0;
+
+width: 100%;
+height: 75%;
+
+overflow: visible;
+}
+/* ========================================================= ПОЗИЦИИ КОРНЕЙ =========================================================
+← ТУТ ТЫ ПОДСТАВЛЯЕШЬ СВОИ КООРДИНАТЫ.
+
+Они могут спокойно выходить
+за пределы roots-layer.
+*/
+.root {
+position: absolute;
+
+padding: 0;
+
+margin: 0;
+
+border: none;
+
+background: transparent;
+
+cursor: pointer;
+
+transform-origin: center;
+
+transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+z-index: 3;
+}
+.root img {
+width: 100%;
+height: 100%;
+
+display: block;
+}
+.root:hover {
+transform: scale(1.02);
+}
+/* ← ПЕРЕПИШИ ЭТИ ЗНАЧЕНИЯ ПОД FIGMA */
+.root-1 {
+left: 15%;
+top: 5%;
+
+width: 25%;
+height: 60%;
+}
+.root-2 {
+left: 37.5%;
+top: 0%;
+
+width: 25%;
+height: 65%;
+}
+.root-3 {
+left: 60%;
+top: 5%;
+
+width: 25%;
+height: 60%;
+}
+/* ---------- СЛОВА ---------- */
+.root-words {
+position: absolute;
+
+left: 22.608696%;
+
+/*
+    312px / 1380px = 22.608696%
+*/
+
+top: 72.5%;
+
+width: 54.782609%;
+
+/*
+    756px / 1380px = 54.782609%
+*/
+
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
+
+column-gap: 12.173913%;
+
+/*
+    168px / 1380px
+*/
+
+text-align: center;
+}
+.root-word {
+font-size: clamp(10px, 1.111111vw, 16px);
+
+opacity: 0;
+
+transform: translateY(10px);
+
+transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.root-word.visible {
+opacity: 1;
+
+transform: translateY(0);
+}
+/* ---------- FOOTER ---------- */
+.main-footer {
+position: absolute;
+
+left: 2.083333%;
+right: 2.083333%;
+bottom: 3.75%;
+
+width: 95.833333%;
+height: 16.875%;
+
+border: 1px solid var(--paper);
+
+display: flex;
+
+align-items: center;
+
+justify-content: space-between;
+
+padding-left: 2.173913%;
+padding-right: 2.173913%;
+}
+.main-footer span {
+font-size: clamp(10px, 1.111111vw, 16px);
+
+color: var(--paper);
+}
+/* ================================ МОБИЛЬНАЯ ЗАГОТОВКА
