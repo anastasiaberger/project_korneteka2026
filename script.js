@@ -326,3 +326,12 @@ if (screen4 && grasses.length) {
     });
 
 }
+// ======================================== // ЭКРАН 5 // ========================================
+const roots = document.querySelectorAll(".screen-5 .root"); const rootWords = document.querySelectorAll(".screen-5 .root-word");
+roots.forEach((root, index) => {
+root.addEventListener("click", () => {
+
+    rootWords[index].classList.toggle("visible");
+
+});
+});

@@ -535,138 +535,90 @@ pointer-events: none;
     height: 52.7027%;
 }
 /* ========================================================= ЭКРАН 5 ========================================================= */
-.screen-5 {
-background: #000000;
-
-color: #f5f1eb;
-}
-.roots-section {
-position: absolute;
-
-inset: 0;
-
-overflow: hidden;
-}
-.roots-layer {
-position: absolute;
-
-left: 0;
-top: 0;
-
-width: 100%;
+.screen-5 { position: relative; background: #000; color: #f5f1eb; width: 100%; height: auto; overflow: hidden; }
+.roots-area { position: absolute;
+left: 2.083333%;
+top: 0%;
 height: 75%;
-
+width: 95%;
 overflow: visible;
 }
-
-.root {
-position: absolute;
-
+.root { position: absolute;
 padding: 0;
-
 margin: 0;
-
 border: none;
-
 background: transparent;
-
 cursor: pointer;
-
-transform-origin: center;
-
+transform-origin: center center;
 transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-
-z-index: 3;
+    transform 0.25s ease,
+    opacity 0.25s ease;
+z-index: 2;
 }
-.root img {
+.root img { display: block;
 width: 100%;
 height: 100%;
-
-display: block;
-}
-.root:hover {
-transform: scale(1.02);
+object-fit: contain;
+pointer-events: none;
 }
 .root-1 {
-left: 15%;
-top: 5%;
-
-width: 25%;
-height: 60%;
+    left: 0%;
+    top: -18%;
+    width: 36%;
+    height: 78%;
 }
 .root-2 {
-left: 37.5%;
-top: 0%;
-
-width: 25%;
-height: 65%;
+    left: 25%;
+    top: -16%;
+    width: 40%;
+    height: 80%;
 }
 .root-3 {
-left: 60%;
-top: 5%;
-
-width: 25%;
-height: 60%;
+    left: 55%;
+    top: -17%;
+    width: 45%;
+    height: 78%;
 }
-.root-words {
-position: absolute;
-
-left: 22.608696%;
-
-top: 72.5%;
-
-width: 54.782609%;
-
-display: grid;
-
-grid-template-columns: repeat(3, 1fr);
-
-column-gap: 12.173913%;
-
-
-text-align: center;
+.root:hover { transform: translateY(-4px); }
+.root-words { position: absolute;
+left: 2.083333%;
+top: 71%;
+width: 95.833333%;
+display: flex;
+justify-content: space-between;
+padding-left: 14%;
+padding-right: 14%;
 }
-.root-word {
-font-size: clamp(10px, 1.111111vw, 16px);
-
+.root-word { font-family: "PT Mono", monospace;
+font-size: 20px;
+line-height: 27px;
+color: #f5f1eb;
 opacity: 0;
-
-transform: translateY(10px);
-
+transform: translateY(8px);
 transition:
     opacity 0.4s ease,
     transform 0.4s ease;
+white-space: nowrap;
 }
-.root-word.visible {
-opacity: 1;
-
+.root-word.visible { opacity: 1;
 transform: translateY(0);
 }
-.main-footer {
-position: absolute;
-
+.main-footer { position: absolute;
 left: 2.083333%;
-right: 2.083333%;
 bottom: 3.75%;
-
 width: 95.833333%;
 height: 16.875%;
-
-border: 1px solid var(--paper);
-
+border: 1px solid #f5f1eb;
 display: flex;
-
 align-items: center;
-
 justify-content: space-between;
-
 padding-left: 2.173913%;
 padding-right: 2.173913%;
+box-sizing: border-box;
 }
-.main-footer span {
-font-size: clamp(10px, 1.111111vw, 16px);
+.footer-name, .footer-group { font-family: "PT Mono", monospace;
+font-size: 20px;
+line-height: 27px;
 
-color: var(--paper);
+color: #f5f1eb;
 }
