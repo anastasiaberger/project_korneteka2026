@@ -5,19 +5,14 @@ font-family: "PT Mono", monospace;
 
 overflow-x: hidden;
 }
-/* Один экран = 1440 × 800.
-Но экран не имеет жёсткой ширины 1440px.
-Если браузер меньше — он уменьшается пропорционально.
-*/
+
 .screen { position: relative;
 width: min(100%, 1440px);
-
 aspect-ratio: 1440 / 800;
-
 margin: 0 auto;
-
 overflow: hidden;
 }
+
 /* ========================================================= ОБЩИЕ ЦВЕТА ========================================================= */
 :root { --paper: #f5f1eb; --black: #000000; --green: #acb585;
 --line: 1px solid #000000;
@@ -26,168 +21,148 @@ overflow: hidden;
 /* ---------- HEADER ---------- */
 .main-header {
 position: absolute;
-
 left: 2.083333%;
 right: 2.083333%;
 top: 3.75%;
-
 width: 95.833333%;
 height: 16.875%;
-
 border: 1px solid var(--black);
-
 display: flex;
-
 align-items: center;
 justify-content: space-between;
-
 padding-left: 2.173913%;
 padding-right: 2.173913%;
 }
+
 .logo {
 font-size: clamp(14px, 1.25vw, 18px);
-
 line-height: 1;
-
 white-space: nowrap;
 }
+
 .header-title {
 font-family: "PT Mono", monospace;
-
 font-size: clamp(18px, 2.222222vw, 32px);
-
 line-height: 1;
-
 white-space: nowrap;
 }
-/* ---------- ОСНОВНОЙ КОНТЕНТ ---------- */
-.screen-1-content {
-position: absolute;
 
-left: 2.083333%;
-top: 24.375%;
-
-width: 95.833333%;
-height: 71.875%;
+/* ---------- ОСНОВНОЙ КОНТЕНТ ---------- */ 
+.screen-1-content { 
+    position: absolute; 
+    left: 2.083333%; 
+    top: 24.375%; 
+    width: 95.833333%; 
+    height: 71.875%; 
 }
-/* ---------- ЛИСТЬЯ ---------- */
-.leaves-area {
-position: absolute;
 
-left: 0;
-top: 0;
-
-width: 70%;
-height: 100%;
+/* ---------- ЛИСТЬЯ ---------- */ 
+.leaves-area { 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    width: 69%; 
+    height: 100%; 
+    border: 1px solid var(--black); 
+    box-sizing: border-box; 
 }
-/* ЗДЕСЬ МОЖНО НАСТРОИТЬ КАЖДЫЙ ЛИСТ
-Сейчас стоит примерная сетка.
 
-Если твоя Figma-композиция другая,
-меняй left / top / width / height.
-*/
-.leaf {
-position: absolute;
-
-display: block;
-
-padding: 0;
-
-margin: 0;
-
-border: 1px solid var(--black);
-
-background: transparent;
-
-cursor: pointer;
-
-overflow: hidden;
-
-transition: transform 0.2s ease;
+.leaf { 
+    position: absolute; 
+    padding: 0; 
+    margin: 0; 
+    border: none; 
+    background: transparent; 
+    cursor: pointer; 
+    overflow: hidden; 
+    box-sizing: border-box; 
+    transition: transform 0.2s ease; 
 }
-.leaf img {
-display: block;
 
-width: 100%;
-height: 100%;
-
-object-fit: contain;
+.leaf img { 
+    display: block; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+    object-position: center; 
+    background: transparent; 
+    pointer-events: none; 
 }
-/* ========================================================= ПОЗИЦИИ 6 ЛИСТЬЕВ ← ТУТ МОЖЕШЬ ПОМЕНЯТЬ ПОД FIGMA ========================================================= */
-.leaf-1 { left: 0%; top: 0%; width: 32%; height: 40%; }
-.leaf-2 { left: 32%; top: 0%; width: 18%; height: 40%; }
-.leaf-3 { left: 50%; top: 0%; width: 18%; height: 40%; }
-.leaf-4 { left: 0%; top: 40%; width: 25%; height: 30%; }
-.leaf-5 { left: 25%; top: 40%; width: 25%; height: 30%; }
-.leaf-6 { left: 50%; top: 40%; width: 18%; height: 30%; }
-.leaf:hover { transform: scale(1.01); }
-/* ---------- LEGEND ---------- */
-.legend {
-position: absolute;
 
-left: 70%;
-top: 0;
-
-width: 30%;
-height: 80%;
-
-padding-left: 2.173913%;
-
-display: flex;
-
-flex-direction: column;
-
-align-items: flex-start;
-
-justify-content: flex-start;
-
-gap: 1.875%;
+.leaf:hover { 
+    transform: scale(1.015); 
 }
-.legend-item {
-display: flex;
 
-align-items: center;
-
-gap: 1.5%;
-
-width: 100%;
+.leaf-1 { 
+    left: 0; top: 0; width: 42%; height: 48%; 
+    border-right: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
 }
-.legend-item img {
-width: clamp(24px, 2.847222vw, 41px);
-height: clamp(24px, 2.847222vw, 41px);
 
-flex-shrink: 0;
+.leaf-2 { 
+    left: 42%; top: 0; width: 22%; height: 48%; 
+    border-right: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
 }
-.legend-item span {
-font-size: clamp(10px, 1.111111vw, 16px);
+.leaf-3 { 
+    left: 64%; top: 0; width: 36%; height: 48%; 
+    border-bottom: 1px solid var(--black);
+}
+.leaf-4 { 
+    left: 0; top: 48%; width: 32%; height: 52%; 
+    border-right: 1px solid var(--black);
+}
+.leaf-5 { 
+    left: 32%; top: 48%; width: 28%; height: 52%; 
+    border-right: 1px solid var(--black);
+}
+.leaf-6 { left: 60%; top: 48%; width: 40%; height: 52%; }
 
-white-space: nowrap;
+/* ---------- ЛЕГЕНДА ---------- */ 
+.legend { 
+    position: absolute; 
+    left: 69%; 
+    top: 0; 
+    width: 31%; 
+    height: 100%; 
+    border: 1px solid var(--black); 
+    border-left: none;
+    box-sizing: border-box; 
+    padding: 3% 4% 0%; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.6vh; 
 }
-/* ---------- SCALE BAR ---------- */
+
+.legend-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 14px; width: 100%; 
+}
+
+.legend-item img { 
+    width: clamp(22px, 2.5vw, 36px); 
+    height: clamp(22px, 2.5vw, 36px); 
+    flex-shrink: 0; 
+
+}
+.legend-item span { 
+    font-size: clamp(12px​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
 .scale-bar {
-position: absolute;
-
-left: 70%;
-bottom: 5.217391%;
-
-margin-left: 2.173913%;
-
-width: clamp(220px, 27.777778vw, 400px);
-height: clamp(8px, 1.041667vw, 15px);
-
-border: 1px solid var(--black);
-
-display: flex;
+    position: absolute;
+    left: 8%;
+    width: 84%;
+    bottom: 4.5%;
+    height: 2.6%;
+    box-sizing: border-box;
+    display: flex;
+    margin: 0;
 }
-.scale-bar span {
-flex: 1;
 
-height: 100%;
-
-border-right: 1px solid var(--black);
-}
-.scale-bar span:last-child { border-right: none; }
-.scale-bar span:nth-child(even) { background: var(--black); }
 /* ========================================================= ЭКРАН 2 ========================================================= */
 .screen-2 { background: var(--paper); }
 .branch-section {
