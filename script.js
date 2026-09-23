@@ -253,3 +253,76 @@ if (allPlaced) {
     console.log("ГОЛОСА");
 }
 }
+
+// =============================== // ЭКРАН 4  // ===========================
+
+const screen4 = document.querySelector(".screen-4");
+const grasses = document.querySelectorAll(".screen-4 .grass");
+
+if (screen4 && grasses.length) {
+
+    const radius = 180;
+    const maxMove = 28;
+    const maxRotate = 16;
+
+    screen4.addEventListener("mousemove", (event) => {
+
+        grasses.forEach((grass) => {
+
+            const rect = grass.getBoundingClientRect();
+
+            const baseX = rect.left + rect.width / 2;
+            const baseY = rect.bottom;
+
+            const dx = event.clientX - baseX;
+            const dy = event.clientY - baseY;
+
+            const distance = Math.sqrt(
+                dx * dx + dy * dy
+            );
+
+            if (distance > radius) {
+                grass.style.setProperty("--grass-x", "0px");
+                grass.style.setProperty("--grass-rotate", "0deg");
+                return;
+            }
+
+            const strength = 1 - distance / radius;
+
+            const direction = dx > 0 ? -1 : 1;
+
+            const move = direction * maxMove * strength;
+            const rotate = direction * maxRotate * strength;
+
+            grass.style.setProperty(
+                "--grass-x",
+                `${move}px`
+            );
+
+            grass.style.setProperty(
+                "--grass-rotate",
+                `${rotate}deg`
+            );
+        });
+
+    });
+
+    screen4.addEventListener("mouseleave", () => {
+
+        grasses.forEach((grass) => {
+
+            grass.style.setProperty(
+                "--grass-x",
+                "0px"
+            );
+
+            grass.style.setProperty(
+                "--grass-rotate",
+                "0deg"
+            );
+
+        });
+
+    });
+
+}
