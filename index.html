@@ -116,58 +116,45 @@
 
 
 
-<!-- =====================================================
-     ЭКРАН 2 — ВЕТКА 
-====================================================== -->
 
 <section class="screen screen-2">
 
     <div class="branch-area">
-
-        <!-- КАРТИНКА ВЕТКИ -->
         <img
             class="branch-image"
             src="assets/branch/branch.png"
             alt=""
         >
-
-        <!--
-            SVG используется для линий между точками.
-            JS будет рисовать линии автоматически.
-        -->
-
         <svg class="connection-svg">
-            <!-- линии добавляются через JavaScript -->
         </svg>
 
-
         <!-- ТОЧКА 1 -->
-        <button class="connection-point point-1" data-point="1">
+        <button class="connection-point point-1" data-point="1" aria-label="Точка 1">
             <span></span>
         </button>
 
         <!-- ТОЧКА 2 -->
-        <button class="connection-point point-2" data-point="2">
+        <button class="connection-point point-2" data-point="2" aria-label="Точка 2">
             <span></span>
         </button>
 
         <!-- ТОЧКА 3 -->
-        <button class="connection-point point-3" data-point="3">
+        <button class="connection-point point-3" data-point="3" aria-label="Точка 3">
             <span></span>
         </button>
 
         <!-- ТОЧКА 4 -->
-        <button class="connection-point point-4" data-point="4">
+        <button class="connection-point point-4" data-point="4" aria-label="Точка 4">
             <span></span>
         </button>
 
         <!-- ТОЧКА 5 -->
-        <button class="connection-point point-5" data-point="5">
+        <button class="connection-point point-5" data-point="5" aria-label="Точка 5">
             <span></span>
         </button>
 
         <!-- ТОЧКА 6 -->
-        <button class="connection-point point-6" data-point="6">
+        <button class="connection-point point-6" data-point="6" aria-label="Точка 6">
             <span></span>
         </button>
 
@@ -207,38 +194,25 @@
 
 
 
-<!-- =====================================================
-     ЭКРАН 3 — ГОЛОСА
-====================================================== -->
-
 <section class="screen screen-3">
 
-    <!-- ЛЕВАЯ ФОТОГРАФИЯ КОРЫ -->
-    <div class="bark-frame">
-
+    <div class="rings-section">
         <img
-            class="bark-image"
+            class="bark-frame"
             src="assets/tree/tree.png"
             alt=""
         >
-
     </div>
 
-
-    <!-- ПРАВАЯ ВЕРХНЯЯ ОБЛАСТЬ -->
-    <div class="text-frame">
-
-        <div class="top-text">
+    <div class="pattern-frame">
+        <div class="pattern-text">
             <div>СТРУКТУРИРУЕМ</div>
             <div>СИГНАЛЫ</div>
             <div>В ПОНЯТНЫЕ</div>
             <div>ПАТТЕРНЫ</div>
         </div>
-
     </div>
 
-
-    <!-- ПРАВАЯ НИЖНЯЯ ОБЛАСТЬ -->
     <div class="rings-frame">
 
         <img
@@ -247,36 +221,28 @@
             alt=""
         >
 
-
-        <!--
-            БУКВЫ.
-
-            Здесь ты потом поменяешь пути к своим SVG.
-            Их положение задаётся в CSS.
-        -->
-
         <button class="letter letter-1">
-            <img src="assets/letters/g.svg" alt="">
+            <img src="assets/letters/g.svg" alt="Г">
         </button>
 
         <button class="letter letter-2">
-            <img src="assets/letters/o1.svg" alt="">
+            <img src="assets/letters/o1.svg" alt="О">
         </button>
 
         <button class="letter letter-3">
-            <img src="assets/letters/l.svg" alt="">
+            <img src="assets/letters/l.svg" alt="Л">
         </button>
 
         <button class="letter letter-4">
-            <img src="assets/letters/o2.svg" alt="">
+            <img src="assets/letters/o2.svg" alt="О">
         </button>
 
         <button class="letter letter-5">
-            <img src="assets/letters/s.svg" alt="">
+            <img src="assets/letters/s.svg" alt="С">
         </button>
 
         <button class="letter letter-6">
-            <img src="assets/letters/a.svg" alt="">
+            <img src="assets/letters/a.svg" alt="А">
         </button>
 
     </div>
@@ -285,15 +251,13 @@
 
 
 
-<!-- =====================================================
-     ЭКРАН 4 — ПЕНЬ 
-====================================================== -->
+
 
 <section class="screen screen-4">
 
     <div class="stump-area">
 
-        <!-- ПЕНЬ -->
+    
         <img
             class="stump-image"
             src="assets/stump/stump.png"
@@ -301,7 +265,6 @@
         >
 
 
-        <!-- СЛОЙ С ТРАВОЙ -->
         <div class="grass-layer">
 
             <img class="grass grass-1"
@@ -364,13 +327,8 @@
 
 
 
-<!-- =====================================================
-     ЭКРАН 5 — КОРНИ
-====================================================== -->
-
 <section class="screen screen-5">
 
-    <!-- КОРНИ -->
 
     <div class="roots-area">
 
@@ -397,8 +355,6 @@
 
     </div>
 
-
-    <!-- СЛОВА, КОТОРЫЕ ПОЯВЛЯЮТСЯ ПРИ КЛИКЕ -->
 
     <div class="root-words">
 
@@ -435,9 +391,6 @@
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-====================================================== -->
 
 <script src="script.js"></script>
 
