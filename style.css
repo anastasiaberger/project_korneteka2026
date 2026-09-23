@@ -378,6 +378,21 @@ height: 100%;
 display: block;
 pointer-events: none;
 }
+.letter {
+    touch-action: none;
+    user-select: none;
+    cursor: grab;
+}
+
+.letter.dragging {
+    cursor: grabbing;
+}
+
+.letter.placed {
+    cursor: default;
+}
+
+
 .letter-1 { left: 16%; top: 35%; }
 .letter-2 { left: 28%; top: 55%; }
 .letter-3 { left: 40%; top: 35%; }

@@ -1,3 +1,19 @@
+// ========================= // ЭКРАН 1// =========================
+const leaves = document.querySelectorAll(".leaf");
+leaves.forEach((leaf) => { const image = leaf.querySelector("img");
+const frontSrc = image.src;
+const backSrc = frontSrc.replace(".png", "-back.png");
+let isBack = false;
+leaf.addEventListener("click", () => {
+    if (isBack) {
+        image.src = frontSrc;
+        isBack = false;
+    } else {
+        image.src = backSrc;
+        isBack = true;
+    }
+});
+});
 /* ===================================================== ЭКРАН 2 ===================================================== */
 const branchArea = document.querySelector(".branch-area"); 
 const connectionSvg = document.querySelector(".connection-svg");
@@ -141,4 +157,99 @@ if (currentConnection === lines.length) {
 }
 }
 
+// ========================= // ЭКРАН 3 // =========================
 
+const ringsFrame = document.querySelector(".rings-frame"); const letters = document.querySelectorAll(".letter");
+const letterTargets = [
+    { left: 167, top: 226 }, // Г 
+    { left: 256, top: 226 }, // О 
+    { left: 355, top: 266 }, // Л 
+    { left: 460, top: 226 }, // О 
+    { left: 565, top: 226 }, // С 
+    { left: 664, top: 226 }  // А 
+    ];
+let draggedLetter = null;
+let startX = 0; let startY = 0;
+let startLeft = 0; let startTop = 0;
+let scaleX = 1; let scaleY = 1;
+letters.forEach((letter, index) => {
+letter.addEventListener("pointerdown", (event) => {
+    if (letter.classList.contains("placed")) {
+        return;
+    }
+    draggedLetter = letter;
+    const frameRect = ringsFrame.getBoundingClientRect();
+    scaleX = frameRect.width / ringsFrame.offsetWidth;
+    scaleY = frameRect.height / ringsFrame.offsetHeight;
+    startX = event.clientX;
+    startY = event.clientY;
+    startLeft = letter.offsetLeft;
+    startTop = letter.offsetTop;
+    letter.setPointerCapture(event.pointerId);
+    letter.style.cursor = "grabbing";
+    letter.style.zIndex = "20";
+    letter.classList.add("dragging");
+});
+
+
+letter.addEventListener("pointermove", (event) => {
+    if (draggedLetter !== letter) {
+        return;
+    }
+    const deltaX =
+        (event.clientX - startX) / scaleX;
+    const deltaY =
+        (event.clientY - startY) / scaleY;
+    const newLeft = startLeft + deltaX;
+    const newTop = startTop + deltaY;
+    letter.style.left = `${newLeft}px`;
+    letter.style.top = `${newTop}px`;
+});
+
+letter.addEventListener("pointerup", (event) => {
+    if (draggedLetter !== letter) {
+        return;
+    }
+    draggedLetter = null;
+    letter.style.cursor = "pointer";
+    letter.style.zIndex = "5";
+    letter.classList.remove("dragging");
+    checkLetterPosition(index);
+});
+
+letter.addEventListener("pointercancel", () => {
+    draggedLetter = null;
+    letter.style.cursor = "pointer";
+    letter.style.zIndex = "5";
+    letter.classList.remove("dragging");
+});
+
+});
+
+function checkLetterPosition(index) {
+    const letter = letters[index];
+    const target = letterTargets[index];
+    const distance = Math.sqrt(
+        Math.pow(letter.offsetLeft - target.left, 2) +
+        Math.pow(letter.offsetTop - target.top, 2)
+    );
+    if (distance < 45) {
+        letter.style.left = `${target.left}px`;
+        letter.style.top = `${target.top}px`;
+
+        letter.classList.add("placed");
+
+        checkWordComplete();
+    }
+}
+
+function checkWordComplete() {
+const allPlaced = [...letters].every(letter =>
+    letter.classList.contains("placed")
+);
+
+if (allPlaced) {
+    ringsFrame.classList.add("word-complete");
+    console.log("ГОЛОСА");
+}
+}
